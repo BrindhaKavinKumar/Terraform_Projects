@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RIND — Kanchivaram Silk Sarees</title>
+  <meta name="description" content="RIND — elegant, comfortable sarees inspired by Kanchipuram heritage." />
+
+  <!-- Beautiful fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0708;
+      --panel:rgba(255,255,255,.05);
+      --line:rgba(255,255,255,.14);
+      --text:#f6eef1;
+      --muted:#cdbbc3;
+      --accent:#ff4d8d;
+      --accent2:#ffd1a8;
+      --radius:18px;
+      --shadow:0 18px 45px rgba(0,0,0,.35);
+      --max:1050px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(255,77,141,.14), transparent 60%),
+        radial-gradient(800px 500px at 90% 15%, rgba(255,209,168,.10), transparent 60%),
+        linear-gradient(180deg,#070405,#0b0708 40%,#070405);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,7,8,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid var(--line);
+      object-fit:cover;
+      box-shadow: var(--shadow);
+    }
+    .brand-text{display:flex; flex-direction:column; line-height:1.05}
+    .brand-name{
+      font-family: "Cormorant Garamond", serif;
+      font-weight:700;
+      letter-spacing:.16em;
+      font-size:1.1rem;
+    }
+    .brand-tag{color:var(--muted); font-size:.85rem; letter-spacing:.06em; margin-top:2px}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:9px 11px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{color:var(--text); border-color:var(--line)}
+
+    /* Sections */
+    section{padding:40px 0}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .section-title{
+      font-family:"Cormorant Garamond", serif;
+      font-size:2rem;
+      margin:0 0 10px;
+      letter-spacing:.02em;
+    }
+    .muted{color:var(--muted)}
+    .lead{font-size:1.02rem; line-height:1.7; margin:0}
+    .pill{
+      display:inline-block;
+      padding:7px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:.9rem;
+    }
+
+    /* Layout blocks */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:start;
+    }
+    .three-col{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    /* Images - smaller */
+    .img{
+      width:100%;
+      border-radius: calc(var(--radius) - 6px);
+      border:1px solid var(--line);
+      display:block;
+      object-fit:cover;
+      background: rgba(255,255,255,.02);
+    }
+    .img--sm{ height: 190px; }
+    .img--md{ height: 230px; }
+    figure{margin:0}
+    figcaption{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .accent{color:var(--accent)}
+    .btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+    }
+    .btn.primary{
+      color:#14070b;
+      font-weight:700;
+      border-color: rgba(255,255,255,.15);
+      background: linear-gradient(135deg, rgba(255,77,141,.95), rgba(255,209,168,.55));
+    }
+    .btn.ghost{background: rgba(255,255,255,.03); color: var(--text)}
+
+    .divider{
+      height:1px; background: var(--line);
+      margin:16px 0;
+      border-radius:99px;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .kv{margin:0; line-height:1.9}
+    .kv b{color:var(--text)}
+    .map{
+  border: 1px solid rgba(255,255,255,.22);   /* solid (not dashed) */
+  border-radius: var(--radius);
+  padding:16px;
+  background: rgba(0,0,0,.18);
+  min-height: 260px;
+  overflow: hidden;                           /* keeps iframe corners clean */
+}
+.map iframe{
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: calc(var(--radius) - 6px);
+}
+
+    footer{
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.2);
+      padding:22px 0;
+    }
+    .footer-row{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; flex-wrap:wrap;
+    }
+    .small{font-size:.92rem}
+
+    @media (max-width: 920px){
+      .two-col{grid-template-columns:1fr}
+      .three-col{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="#top" aria-label="RIND home">
+        <!-- Small gloriosa logo -->
+        <img class="logo"
+             src="https://commons.wikimedia.org/wiki/Special:FilePath/Gloriosa%20superba%20flower.jpg"
+             alt="Gloriosa superba — RIND logo"
+             loading="lazy">
+        <div class="brand-text">
+          <span class="brand-name">RIND</span>
+          <span class="brand-tag">Kanchivaram Silk Sarees</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#kanchi">Kanchivaram</a>
+        <a href="#weavers">Weavers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ABOUT RIND (first) -->
+    <section id="about">
+      <div class="wrap">
+        <div class="two-col">
+          <div class="card">
+            <span class="pill">Comfortable • Elegant • Feels like you</span>
+            <h1 class="section-title" style="font-size:2.4rem;margin-top:10px;">
+              About <span class="accent">RIND</span>
+            </h1>
+            <p class="lead muted">
+              <strong style="color:var(--text); font-weight:600;">Rind</strong> means the <strong style="color:var(--text); font-weight:600;">outer layer of a fruit</strong>.
+              To us, dresses are a layer — but never a mask. They should feel like a part of our body:
+              <strong style="color:var(--text); font-weight:600;">comfortable</strong>, natural, and still
+              <strong style="color:var(--text); font-weight:600;">elegant</strong>.
+            </p>
+            <div class="divider"></div>
+            <p class="lead muted">
+              At RIND, we curate traditional silks with a soft, wearable sensibility — so you can move,
+              breathe, and glow through every temple visit, wedding, and celebration.
+            </p>
+
+            <div class="btn-row">
+              <a class="btn primary" href="#kanchi">Explore Kanchivaram</a>
+              <a class="btn ghost" href="#contact">Reach us</a>
+            </div>
+          </div>
+
+          <figure class="card">
+            <img class="img img--md"
+                 src="https://commons.wikimedia.org/wiki/Special:FilePath/Gloriosa%20superba%20flower.jpg"
+                 alt="Gloriosa superba — inspiration for RIND"
+                 loading="lazy">
+            <figcaption>Gloriosa superba • our signature inspiration</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- KANCHIVARAM TOPIC + temple/girl image -->
+    <section id="kanchi">
+      <div class="wrap">
+        <div class="two-col">
+          <div class="card">
+            <h2 class="section-title">Kanchivaram Sarees</h2>
+            <p class="lead muted">
+              Kanchipuram (Kanchi) is a historic temple city in Tamil Nadu. Its weaving legacy is famous for
+              sarees with a rich silk body, striking borders, and a grand pallu — often inspired by temple art.
+            </p>
+            <div class="divider"></div>
+            <h3 style="margin:0 0 8px; font-family:'Cormorant Garamond', serif; font-size:1.4rem;">
+              A short history
+            </h3>
+            <p class="lead muted">
+              Kanchipuram silks are celebrated for their craftsmanship and longevity. Traditional design language
+              draws from the visual rhythm of temples — gopuram-like borders, geometric checks, florals, and auspicious motifs.
+              Over generations, weavers refined these elements into the iconic “Kanchivaram look” loved for weddings and festivals.
+            </p>
+          </div>
+
+          <figure class="card">
+            <!-- Small picture: pure saree / temple vibe -->
+            <img class="img img--md"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj_tY_Se2UCNLf8QUKmqa5iy_jovKmhFkzsQ&s"
+                 alt="Kanchipuram silk sarees"
+                 loading="lazy">
+            <figcaption>Pure silk look • temple-ready elegance</figcaption>
+          </figure>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="three-col">
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://commons.wikimedia.org/wiki/Special:FilePath/Kanchi%20Kailasanathara%20Temple%20Gopuram.jpg"
+                 alt="Temple gopuram in Kanchipuram"
+                 loading="lazy">
+            <figcaption>Temple gopurams influence border styles</figcaption>
+          </figure>
+
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgyiQ6eVbVB8wnONu6VKvaYSCDr_zRi4x6IA&s"
+                 alt="Kanchipuram silk sarees displayed"
+                 loading="lazy">
+            <figcaption>Classic drapes • bold borders</figcaption>
+          </figure>
+
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://commons.wikimedia.org/wiki/Special:FilePath/2%20Kailashanathar%20Temple%20in%20Kanchipuram.JPG"
+                 alt="Kailasanathar Temple"
+                 loading="lazy">
+            <figcaption>Temple artistry • timeless motifs</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEAVERS / weaving images -->
+    <section id="weavers">
+      <div class="wrap">
+        <div class="two-col">
+          <div class="card">
+            <h2 class="section-title">Weavers & Craft</h2>
+            <p class="lead muted">
+              Every Kanchivaram saree begins on the loom — where skilled hands translate tradition into thread.
+              The beauty is not only in how it looks, but in how it holds its form, its shine, and its story over time.
+            </p>
+            <div class="divider"></div>
+            <p class="lead muted">
+              RIND celebrates weaving as living heritage — a craft carried forward through families, workshops,
+              and communities that honor detail and patience.
+            </p>
+          </div>
+
+          <figure class="card">
+            <img class="img img--md"
+                 src="https://thumbs.dreamstime.com/b/kanchipuram-silk-weaver-work-tamil-nadu-skilled-artisan-meticulously-crafts-vibrant-sari-traditional-handloom-368375470.jpg"
+                 alt="Weaving a silk saree on a loom in Kanchipuram"
+                 loading="lazy">
+            <figcaption>Handloom weaving • Kanchipuram</figcaption>
+          </figure>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="three-col">
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://mokshaaworld.com/cdn/shop/files/Pro-Capture_One_3792.jpg?v=1750086223&width=2980"
+                 alt="Silk saree being made in Kanchipuram"
+                 loading="lazy">
+            <figcaption>Threads aligned • patterns emerge</figcaption>
+          </figure>
+
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://cdn.shopify.com/s/files/1/0783/6211/6386/files/01.jpg?v=1696067038"
+                 alt="Loom detail and weaving"
+                 loading="lazy">
+            <figcaption>Texture, tension, and tradition</figcaption>
+          </figure>
+
+          <figure class="card">
+            <img class="img img--sm"
+                 src="https://cdn.shopify.com/s/files/1/0490/1158/9282/files/50-p-annual-sale-mask-img.png"
+                 alt="Folded silk sarees"
+                 loading="lazy">
+            <figcaption>Finished silks • ready to drape</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="card">
+          <h2 class="section-title">Contact</h2>
+          <p class="lead muted">Replace the details below with your boutique’s phone, email, and address.</p>
+
+          <div style="height:12px"></div>
+
+          <div class="contact-grid">
+            <div class="card" style="padding:16px">
+              <p class="kv muted">
+                <b>Phone:</b> <a href="tel:+910000000000">+91 00000 00000</a><br>
+                <b>Email:</b> <a href="mailto:hello@rindboutique.example">hello@rindboutique.example</a><br>
+                <b>Address:</b> RIND Boutique, Your Street, Your City, Tamil Nadu, India<br>
+                <b>Hours:</b> Mon–Sat 10:30–20:30 • Sun 11:00–18:00
+              </p>
+              <div class="btn-row">
+                <a class="btn primary" href="mailto:hello@rindboutique.example?subject=Enquiry%20-%20RIND">Email us</a>
+                <a class="btn ghost" href="error.html">Live Website is in progress</a>
+              </div>
+            </div>
+
+            <div class="map" aria-label="Map to Kanchipuram">
+  <iframe
+    title="Kanchipuram Map"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=Kanchipuram,%20Tamil%20Nadu,%20India&output=embed">
+  </iframe>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap footer-row">
+        <div>
+          <div class="brand-name">RIND</div>
+          <div class="muted small">Kanchivaram Silk Sarees • Gloriosa superba</div>
+        </div>
+        <div class="muted small">© <span id="year"></span> RIND • <a href="error.html">404</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
